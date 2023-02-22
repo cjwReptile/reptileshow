@@ -6,6 +6,7 @@
     <modules>
         <module>reptileprovider</module>
         <module>reptileconsumer</module>
+        <module>reptilegateway</module>
     </modules>
 
     <groupId>com.cjw</groupId>

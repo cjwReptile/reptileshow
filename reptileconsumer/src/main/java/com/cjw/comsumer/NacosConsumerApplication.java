@@ -34,7 +34,7 @@ public class NacosConsumerApplication {
         @Autowired
         public TestController(RestTemplate restTemplate) {this.restTemplate = restTemplate;}
 
-        @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
+        @RequestMapping(value = "/consumer/echo/{str}", method = RequestMethod.GET)
         public String echo(@PathVariable String str) {
             return restTemplate.getForObject("http://reptile-provider/echo/" + str, String.class);
         }

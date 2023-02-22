@@ -1,0 +1,25 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: reptile-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+      routes:
+        - id: reptile-provider
+          uri: http://localhost:8080/provider
+          predicates:
+            - Path=/provider/**
+        - id: reptile-consumer
+          uri: http://localhost:8081/consumer
+          predicates:
+            - Path=/consumer/**
+          filters:
+            - StripPrefix=0
